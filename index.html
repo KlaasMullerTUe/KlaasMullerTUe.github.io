@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Spline Scene</title>
+  <title>My Spline Viewer</title>
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
   <style>
     html, body {
@@ -20,6 +20,9 @@
   </style>
 </head>
 <body>
-  <spline-viewer url="https://prod.spline.design/7lru5OQNvmALywXE/scene.splinecode"></spline-viewer>
+  <spline-viewer
+    loading-anim-type="spinner-small-dark"
+    url="https://prod.spline.design/7lru5OQNvmALywXE/scene.splinecode">
+  </spline-viewer>
 </body>
 </html>
