@@ -4,25 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Spline Viewer</title>
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js" async></script>
   <style>
     html, body {
       margin: 0;
       padding: 0;
+      background: #000;
       height: 100%;
-      background-color: #000;
+      width: 100%;
+      overflow: hidden;
     }
+
+    .wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1920px;
+      height: 1080px;
+      transform-origin: top left;
+    }
+
     spline-viewer {
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       display: block;
     }
   </style>
 </head>
 <body>
-  <spline-viewer
-    loading-anim-type="spinner-small-dark"
-    url="https://prod.spline.design/7lru5OQNvmALywXE/scene.splinecode">
-  </spline-viewer>
+  <div class="wrapper">
+    <spline-viewer
+      loading-anim-type="spinner-small-dark"
+      url="https://prod.spline.design/7lru5OQNvmALywXE/scene.splinecode">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAASCAYAAAA6yNxSAAAJcklEQVR4AQCBAH7/..." alt="Spline preview" style="width: 100%; height: 100%;" />
+    </spline-viewer>
+  </div>
+
+  <script>
+    function scaleToFit() {
+      const wrapper = document.querySelector('.wrapper');
+      const scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      wrapper.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }
+
+    window.addEventListener('resize', scaleToFit);
+    window.addEventListener('DOMContentLoaded', scaleToFit);
+  </script>
 </body>
 </html>
