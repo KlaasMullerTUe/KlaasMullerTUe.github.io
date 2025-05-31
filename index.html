@@ -1,35 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Spline Viewer</title>
-  <script type="module">
-    import { Application } from 'https://unpkg.com/@splinetool/runtime@0.9.478/build/runtime.js';
-
-    window.addEventListener('DOMContentLoaded', () => {
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+				overflow: hidden;
+      }
+      html, body {
+        height: 100%;
+      }
+      canvas {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas3d"></canvas>
+    <script type="module">
+      import { Application } from './runtime.js';
       const canvas = document.getElementById('canvas3d');
       const app = new Application(canvas);
-      app.load('https://prod.spline.design/7lru5OQNvmALywXE/scene.splinecode');
-    });
-  </script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-    canvas {
-      display: block;
-      width: 100vw;
-      height: 100vh;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="canvas3d"></canvas>
-</body>
+      app.load('./scene.splinecode');
+    </script>
+  </body>
 </html>
+  
