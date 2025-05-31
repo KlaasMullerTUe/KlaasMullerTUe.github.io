@@ -1,29 +1,48 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      body {
-        margin: 0;
-				overflow: hidden;
-      }
-      html, body {
-        height: 100%;
-      }
-      canvas {
-        display: block;
-      }
-    </style>
-  </head>
-  <body>
-    <canvas id="canvas3d"></canvas>
-    <script type="module">
-      import { Application } from './runtime.js';
-      const canvas = document.getElementById('canvas3d');
-      const app = new Application(canvas);
-      app.load('./scene.splinecode');
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>My Spline Viewer</title>
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.98/build/spline-viewer.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 2560px;
+      height: 1440px;
+      transform-origin: top left;
+    }
+    spline-viewer {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <spline-viewer url="https://prod.spline.design/nFr3WqgOiZsBIqaL/scene.splinecode"></spline-viewer>
+  </div>
+
+  <script>
+    function scaleToFit() {
+      const container = document.querySelector('.container');
+      const scale = Math.min(window.innerWidth / 2560, window.innerHeight / 1440);
+      container.style.transform = `translate(-50%, -50%) scale(${scale})`;
+    }
+
+    window.addEventListener('resize', scaleToFit);
+    window.addEventListener('DOMContentLoaded', scaleToFit);
+  </script>
+</body>
 </html>
-  
