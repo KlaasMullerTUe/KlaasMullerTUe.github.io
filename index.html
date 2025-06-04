@@ -2,38 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Spline Embed</title>
+  <title>Spline Embed Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Spline Viewer script -->
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.99/build/spline-viewer.js"></script>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      background: #111;
+      background: #181818;
     }
-    .spline-container {
+    body {
       width: 100vw;
       height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
     }
     spline-viewer {
       width: 100vw;
       height: 100vh;
       min-width: 320px;
       min-height: 240px;
-      outline: none;
-      border: none;
       display: block;
+      border: none;
+      outline: none;
     }
   </style>
 </head>
 <body>
-  <div class="spline-container">
-    <spline-viewer url="https://prod.spline.design/nFr3WqgOiZsBIqaL/scene.splinecode"></spline-viewer>
-  </div>
+  <spline-viewer url="https://prod.spline.design/nFr3WqgOiZsBIqaL/scene.splinecode"></spline-viewer>
 </body>
 </html>
